@@ -1,0 +1,41 @@
+# Program to perform operations on Tuple, Set, and Dictionary
+
+# 1. Tuple Operations
+t = (10, 20, 30, 40, 50)
+
+print("Tuple:", t)
+print("First element:", t[0])
+print("Length of tuple:", len(t))
+print("Count of 20:", t.count(20))
+
+
+# 2. Set Operations
+s = {10, 20, 30, 40}
+
+print("\nSet:", s)
+
+s.add(50)
+print("After adding 50:", s)
+
+s.remove(20)
+print("After removing 20:", s)
+
+
+# 3. Dictionary Operations
+student = {
+    "Name": "Divyanshi",
+    "Roll No": 39,
+    "Branch": "Data Science"
+}
+
+print("\nDictionary:", student)
+print("Name:", student["Name"])
+
+student["City"] = "Nagpur"
+print("After adding City:", student)
+
+student["Roll No"] = 40
+print("After updating Roll No:", student)
+
+del student["City"]
+print("After deleting City:", student)
