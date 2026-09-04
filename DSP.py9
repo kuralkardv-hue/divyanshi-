@@ -1,0 +1,93 @@
+# Aim: To implement stack operations and convert infix expression to postfix
+
+# Stack Operations
+stack = []
+
+def push():
+    item = input("Enter element to push: ")
+    stack.append(item)
+    print(item, "pushed into stack")
+
+def pop():
+    if len(stack) == 0:
+        print("Stack Underflow")
+    else:
+        print("Popped element:", stack.pop())
+
+def display():
+    if len(stack) == 0:
+        print("Stack is empty")
+    else:
+        print("Stack elements:", stack)
+
+
+# Infix to Postfix Conversion
+def precedence(operator):
+    if operator == '^':
+        return 3
+    elif operator in ['*', '/']:
+        return 2
+    elif operator in ['+', '-']:
+        return 1
+    return 0
+
+
+def infix_to_postfix(expression):
+    stack = []
+    postfix = ""
+
+    for char in expression:
+        if char.isalnum():
+            postfix += char
+
+        elif char == '(':
+            stack.append(char)
+
+        elif char == ')':
+            while stack and stack[-1] != '(':
+                postfix += stack.pop()
+            stack.pop()
+
+        else:
+            while (stack and stack[-1] != '(' and
+                   precedence(stack[-1]) >= precedence(char)):
+                postfix += stack.pop()
+
+            stack.append(char)
+
+    while stack:
+        postfix += stack.pop()
+
+    return postfix
+
+
+# Main Program
+while True:
+    print("\n--- STACK OPERATIONS ---")
+    print("1. Push")
+    print("2. Pop")
+    print("3. Display Stack")
+    print("4. Convert Infix to Postfix")
+    print("5. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        push()
+
+    elif choice == 2:
+        pop()
+
+    elif choice == 3:
+        display()
+
+    elif choice == 4:
+        expression = input("Enter infix expression: ")
+        print("Postfix expression:", infix_to_postfix(expression))
+
+    elif choice == 5:
+        print("Program ended")
+        break
+
+    else:
+        print("Invalid choice")
