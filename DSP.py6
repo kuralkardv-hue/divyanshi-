@@ -1,0 +1,27 @@
+import numpy as np
+
+# 1. Array Creation
+arr = np.array([10, 20, 30, 40, 50, 60])
+print("Original Array:", arr)
+
+# 2. Indexing
+print("First Element:", arr[0])
+print("Third Element:", arr[2])
+
+# 3. Slicing
+print("Elements from index 1 to 4:", arr[1:5])
+
+# 4. Reshaping
+new_arr = arr.reshape(2, 3)
+print("\nReshaped Array:")
+print(new_arr)
+
+# 5. Mathematical Operations
+print("\nAddition:", arr + 5)
+print("Multiplication:", arr * 2)
+print("Square:", arr ** 2)
+
+print("\nSum:", np.sum(arr))
+print("Mean:", np.mean(arr))
+print("Maximum:", np.max(arr))
+print("Minimum:", np.min(arr))
