@@ -1,0 +1,32 @@
+# Node class for Folder/File
+class Node:
+    def __init__(self, name):
+        self.name = name
+        self.left = None
+        self.right = None
+
+
+# Function to display the binary tree
+def display(root, level=0):
+    if root is not None:
+        display(root.right, level + 1)
+        print("    " * level + root.name)
+        display(root.left, level + 1)
+
+
+# Creating folder/file structure
+root = Node("Root")
+
+root.left = Node("Documents")
+root.right = Node("Pictures")
+
+root.left.left = Node("Resume.pdf")
+root.left.right = Node("Notes.txt")
+
+root.right.left = Node("Photo1.jpg")
+root.right.right = Node("Photo2.jpg")
+
+
+# Display structure
+print("Folder/File Structure:")
+display(root)
