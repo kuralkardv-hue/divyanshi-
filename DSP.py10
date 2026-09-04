@@ -1,0 +1,56 @@
+# Aim: To manage tasks using Stack and Queue operations
+
+from collections import deque
+
+# Stack and Queue
+stack = []
+queue = deque()
+
+while True:
+    print("\n--- TASK MANAGEMENT SYSTEM ---")
+    print("1. Add Task to Stack")
+    print("2. Remove Task from Stack")
+    print("3. Display Stack")
+    print("4. Add Task to Queue")
+    print("5. Remove Task from Queue")
+    print("6. Display Queue")
+    print("7. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        task = input("Enter task name: ")
+        stack.append(task)
+        print("Task added to Stack.")
+
+    elif choice == 2:
+        if len(stack) == 0:
+            print("Stack is empty.")
+        else:
+            task = stack.pop()
+            print("Removed task:", task)
+
+    elif choice == 3:
+        print("Stack Tasks:", stack)
+
+    elif choice == 4:
+        task = input("Enter task name: ")
+        queue.append(task)
+        print("Task added to Queue.")
+
+    elif choice == 5:
+        if len(queue) == 0:
+            print("Queue is empty.")
+        else:
+            task = queue.popleft()
+            print("Removed task:", task)
+
+    elif choice == 6:
+        print("Queue Tasks:", list(queue))
+
+    elif choice == 7:
+        print("Program Ended.")
+        break
+
+    else:
+        print("Invalid Choice!")
