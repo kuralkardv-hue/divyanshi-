@@ -1,0 +1,47 @@
+# Linear Search and Binary Search Program
+
+def linear_search(arr, key):
+    for i in range(len(arr)):
+        if arr[i] == key:
+            return i
+    return -1
+
+
+def binary_search(arr, key):
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == key:
+            return mid
+        elif arr[mid] < key:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1
+
+
+# Array
+arr = [10, 20, 30, 40, 50, 60, 70]
+
+# Element to search
+key = int(input("Enter element to search: "))
+
+# Linear Search
+result1 = linear_search(arr, key)
+
+if result1 != -1:
+    print("Linear Search: Element found at index", result1)
+else:
+    print("Linear Search: Element not found")
+
+# Binary Search
+result2 = binary_search(arr, key)
+
+if result2 != -1:
+    print("Binary Search: Element found at index", result2)
+else:
+    print("Binary Search: Element not found")
